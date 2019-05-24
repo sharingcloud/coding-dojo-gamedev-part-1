@@ -1,0 +1,6 @@
+[book]
+title = "Coding Dojo - Gamedev Part 1"
+author = "Denis BOURGE"
+description = "Gamedev Part 1"
+multilingual = false
+src = "src"
