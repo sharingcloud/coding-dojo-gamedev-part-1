@@ -1,5 +1,7 @@
 extends Node2D
 
+signal spawn(spawner, instance)
+
 #########
 # Spawner
 
@@ -24,8 +26,9 @@ func _ready():
 func _spawn(x, y):
     var instance = self.scene.instance()
     instance.prepare_for_spawn(self, x, y)
-
     self.container.add_child(instance)
+
+    emit_signal("spawn", self, instance)
 
 #################
 # Event callbacks

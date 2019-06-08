@@ -8,7 +8,7 @@
 
 Godot Engine est un moteur complètement open-source, assez jeune dans le monde du gamedev, mais super prometteur.
 
-Je ne vais pas récapituler toutes les features ici, vous pouvez directement aller sur leur [site officiel](https://godotengine.org/).
+Pour avoir plus d'informations, vous pouvez directement aller sur leur [site officiel](https://godotengine.org/).
 
 > Godot Engine is a feature-packed, cross-platform game engine to create 2D and 3D games from a unified interface. It provides a comprehensive set of common tools, so users can focus on making games without having to reinvent the wheel. Games can be exported in one click to a number of platforms, including the major desktop platforms (Linux, macOS, Windows) as well as mobile (Android, iOS) and web-based (HTML5) platforms.  
 >

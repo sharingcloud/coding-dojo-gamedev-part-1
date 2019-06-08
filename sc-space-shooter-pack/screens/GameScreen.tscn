@@ -18,7 +18,7 @@ color = Color( 0, 0, 0, 1 )
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 246.616, 772.186 )
 
-[node name="Spawner" parent="." instance=ExtResource( 3 )]
+[node name="RockSpawner" parent="." instance=ExtResource( 3 )]
 scene = ExtResource( 4 )
 
 [node name="Bullets" type="Node2D" parent="."]

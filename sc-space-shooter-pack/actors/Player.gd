@@ -112,6 +112,9 @@ func _on_area_entered(area):
         self.explode()
     elif area.is_in_group("Enemy"):
         self.explode()
+    elif area.is_in_group("Bullet") and area.enemy_mode:
+        area.queue_free()
+        self.explode()
 
 func _on_death_timeout():
     self.position = self.initial_position

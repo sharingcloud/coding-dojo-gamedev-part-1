@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://screens/GameScreen.gd" type="Script" id=1]
+[ext_resource path="res://_exercices/GameScreen_2.gd" type="Script" id=1]
 [ext_resource path="res://_exercices/Stars.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/Spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/Rock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_exercices/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_exercices/HUD.tscn" type="PackedScene" id=7]
 
 [node name="GameScreen_2" type="Control"]
 anchor_right = 1.0
@@ -16,8 +18,16 @@ script = ExtResource( 1 )
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 246.616, 772.186 )
 
-[node name="Spawner" parent="." instance=ExtResource( 4 )]
+[node name="RockSpawner" parent="." instance=ExtResource( 4 )]
 scene = ExtResource( 5 )
 
+[node name="EnemySpawner" parent="." instance=ExtResource( 4 )]
+scene = ExtResource( 6 )
+spawn_delay = 5.0
+
 [node name="Bullets" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 7 )]
 

@@ -16,7 +16,7 @@ Avec un système de particules, on peut faire n'importe quoi:
 
 Faut pas avoir peur, un système de particules c'est assez simple finalement, ça a juste beaucoup d'options, ce qui fait qu'on peut faire ce qu'on veut.
 
-Alors on va tout de suite créer notre première scène. Appuyez sur **File / New Scene**.
+Alors on va tout de suite créer notre première scène. Appuyez sur **Scene -> New Scene**.
 
 <p style="text-align: center">
   <img src="./assets/godot-editor-new-scene.png">
@@ -122,23 +122,23 @@ D'ici, vous pouvez configurer le système de particules comme vous le voulez, jo
 
 Pour avoir un truc qui ressemble à un ensemble d'étoiles voici ce que je recommande:
 
-- `Emission Shape` > `Shape`: Choisir `Box`
-- `Emission Shape` > `Box Extents`: Choisir `(X: 250, Y: 425, Z: 1)`
-- `Gravity` > Choisir `(X: 0, Y: 0, Z: 0)`
+- `Emission Shape -> Shape`: Choisir `Box`
+- `Emission Shape -> Box Extents`: Choisir `(X: 250, Y: 425, Z: 1)`
+- `Gravity -> Gravity` > Choisir `(X: 0, Y: 0, Z: 0)`
 
 Ca ressemble déja un peu à des étoiles.
 
-- `Scale` > `Scale`: Choisir `4`
-- `Scale` > `Scane Random`: Choisir `1`
-- `Scale` > `Scale Curve`: Choisir `New CurveTexture`
-- `Scale` > `Scale Curve` > `Curve`: Déplacer le dernier point vers le bas à 0
+- `Scale -> Scale`: Choisir `4`
+- `Scale -> Scale Random`: Choisir `1`
+- `Scale -> Scale Curve`: Choisir `New CurveTexture`
+- `Scale -> Scale Curve -> Curve`: Déplacer le dernier point vers le bas à 0
 
 Maintenant on va jouer avec la couleur.
 
-- `Color` > `Color Ramp`: Choisir `New GradientTexture`
-- `Color` > `Color Ramp` > `Gradient`: Choisir `New Gradient`
-- `Color` > `Color Ramp` > `Gradient` > `Gradient`: Cliquer sur le curseur à gauche, puis sur la couleur dans l'encart à droite, et choisir une couleur blanche (ou la couleur que vous souhaitez).
-- `Color` > `Color Ramp` > `Gradient` > `Gradient`: Cliquer sur le curseur à droite, puis sur la couleur dans l'encart à droite, et déplacer le curseur A (Alpha) à 0.
+- `Color -> Color Ramp`: Choisir `New GradientTexture`
+- `Color -> Color Ramp -> Gradient`: Choisir `New Gradient`
+- `Color -> Color Ramp -> Gradient -> Gradient`: Cliquer sur le curseur à gauche, puis sur la couleur dans l'encart à droite, et choisir une couleur blanche (ou la couleur que vous souhaitez).
+- `Color -> Color Ramp -> Gradient -> Gradient`: Cliquer sur le curseur à droite, puis sur la couleur dans l'encart à droite, et déplacer le curseur A (Alpha) à 0.
 
 Voilà, on a un effet "fade-out".
 
