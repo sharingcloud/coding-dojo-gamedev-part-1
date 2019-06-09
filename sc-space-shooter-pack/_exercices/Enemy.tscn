@@ -69,7 +69,9 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=9]
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=[
+"Enemy",
+]]
 position = Vector2( 84.7145, -5.85936 )
 collision_layer = 4
 collision_mask = 9

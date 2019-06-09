@@ -9,3 +9,4 @@
 - [Pratique - Jouer avec les nodes](./PRACTICE-NODES.md)
   - [Un fond et des étoiles](./PRACTICE-NODES-STARS.md)
   - [Des ennemis](./PRACTICE-NODES-ENEMY.md)
+  - [Un HUD pour le score](./PRACTICE-NODES-HUD.md)

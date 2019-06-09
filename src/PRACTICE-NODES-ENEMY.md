@@ -517,7 +517,7 @@ Ici, on définit 3 fonctions:
 
 Petite explication sur le `yield` de `explode`: si à la place on avait fait quelque chose comme `sleep 0.5`, on aurait bloqué toute l'exécution du jeu. Hors ici on veut juste attendre avant d'appeler la méthode `queue_free` pour supprimer le node.
 
-Ici, on crée un timer de 0.5 seccondes à la volée via `get_tree().create_timer(0.5)`, et on attend le déclenchement du signal `timeout`, en redonnant la main au jeu (on met la fonction en "pause").
+Ici, on crée un timer de 0.5 secondes à la volée via `get_tree().create_timer(0.5)`, et on attend le déclenchement du signal `timeout`, en redonnant la main au jeu (on met la fonction en "pause").
 Quand le signal a été émis, la fonction `explode` reprend la main, et on exécute bien `queue_free`, et ce sans bloquer le jeu.
 
 C'est le fonctionnement même des fameuses **coroutines**, qu'on peut trouver dans la plupart des langages, comme en Python par exemple.

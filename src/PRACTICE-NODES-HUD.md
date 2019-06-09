@@ -91,5 +91,3 @@ Faites `Play Scene`, et hop, le HUD devrait fonctionner.
 <p style="text-align: center">
   <img src="./assets/hud-game.png">
 </p>
-
-TODO: collision player/enemy
