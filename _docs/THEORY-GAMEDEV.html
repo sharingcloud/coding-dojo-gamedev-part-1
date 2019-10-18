@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Théorie - Game development - Coding Dojo - Gamedev Part 1</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Gamedev Part 1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="HOME.html">Introduction</a></li><li><a href="PREREQUISITES.html"><strong aria-hidden="true">1.</strong> Pré-requis</a></li><li><a href="THEORY-GAMEDEV.html" class="active"><strong aria-hidden="true">2.</strong> Théorie - Game development</a></li><li><a href="THEORY-GODOT.html"><strong aria-hidden="true">3.</strong> Théorie - Godot Engine</a></li><li><a href="PRACTICE-GODOT.html"><strong aria-hidden="true">4.</strong> Pratique - Prise en main de Godot</a></li><li><a href="PRACTICE-NODES.html"><strong aria-hidden="true">5.</strong> Pratique - Jouer avec les nodes</a></li><li><ol class="section"><li><a href="PRACTICE-NODES-STARS.html"><strong aria-hidden="true">5.1.</strong> Un fond et des étoiles</a></li><li><a href="PRACTICE-NODES-ENEMY.html"><strong aria-hidden="true">5.2.</strong> Des ennemis</a></li><li><a href="PRACTICE-NODES-HUD.html"><strong aria-hidden="true">5.3.</strong> Un HUD pour le score</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Coding Dojo - Gamedev Part 1</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#théorie---game-development" id="théorie---game-development">Théorie - Game development</a></h1>
+<p style="text-align: center">
+  <img src="./assets/joystick.png" width="250" height="250" />
+</p>
+<h2><a class="header" href="#cest-quoi-le-game-development-gamedev-" id="cest-quoi-le-game-development-gamedev-">C'est quoi le game development (gamedev) ?</a></h2>
+<p>Je vais volontairement vulgariser les choses et aller vite sur le sujet, vu que c'est un sujet hyper vaste.</p>
+<p>Le gamedev c'est (en gros) le domaine où l'on <strong>conçoit des jeux vidéos de A à Z</strong>.</p>
+<p>Le gamedev est une branche du développement très complexe et passionante, considérée parmi les branches les plus difficiles du monde du développement. Quand on réalise un jeu, surtout avec un point de vue et des compétences de développeur, on a finalement besoin de pas mal de sujets à explorer.</p>
+<p>Entre autres, il faut s'occuper:</p>
+<ul>
+<li>De la partie <strong>gameplay</strong>: mettre en place une bonne mécanique de jeu</li>
+<li>De la partie <strong>scénario</strong>: il faut bien une histoire ou alors un environnement cohérent</li>
+<li>De la partie <strong>graphique</strong>: des sprites, des tilemaps, des backgrounds, n'importe quelle ressource graphique</li>
+<li>De la partie <strong>son</strong>: effets sonores et musiques, interaction des sons avec le gameplay</li>
+<li>De la partie <strong>réseau</strong>: pour le multijoueur c'est quand même mieux (après il est possible de faire du split-screen à l'ancienne)</li>
+<li>De la partie <strong>physique</strong>: collisions et réactions plus ou moins réalistes</li>
+<li>De la partie <strong>moteur/engine</strong>: le(s) système(s) sous-jacent(s) qui s'occupe(nt) de tout coordonner</li>
+<li>Et encore d'autres parties spécialisées comme par exemple le <strong>scripting</strong> pour dynamiquement exécuter du code lors du level design</li>
+</ul>
+<p>Vous aurez compris, pour chacune de ces parties, on peut nécessiter une ou plusieurs personnes à temps plein (notamment la partie <strong>engine</strong> qui est la plus technique).</p>
+<p>Seulement, dans le monde d'aujourd'hui, il est entièrement possible de créer un jeu <em>en solo</em> (ou <em>en équipe réduite</em>), il faut juste de la <strong>patience</strong>, de l'<strong>investissement</strong>, de la <strong>réflexion</strong>, et surtout beaucoup de <strong>pratique</strong>.</p>
+<p>Il y a une règle que j'ai lu quelque part qui dit en gros que <em>&quot;tes dix premiers jeux vidéos seront plutôt mauvais, et après ça ira mieux&quot;</em>.
+Donc il faut pratiquer.</p>
+<h2><a class="header" href="#comment-on-fait-un-jeu-en-pratique-" id="comment-on-fait-un-jeu-en-pratique-">Comment on fait un jeu en pratique ?</a></h2>
+<p>Il y a en gros <strong>trois</strong> manières de faire un jeu vidéo.</p>
+<h3><a class="header" href="#sans-rien" id="sans-rien">Sans rien</a></h3>
+<p>La première, c'est de <strong>partir de zéro</strong> en mode <em>warrior</em>, avec son langage préféré et son couteau. D'ailleurs le langage préféré est un peu biaisé ici, dans le monde du gamedev on utilise surtout C++.</p>
+<p>Autant vous dire que c'est la manière la plus difficile, qu'il y a juste énormément de choses à gérer pour faire tourner son jeu ne serait-ce que sur une seule plateforme, et que comme il faut tout faire à la main ça demande énormément de temps puisque tout va devoir se faire en code, sauf si vous prenez en plus le temps de faire des éditeurs.<br />
+On ne va donc pas faire ça aujourd'hui, même si d'un point de vue éducationnel, ça peut être hyper enrichissant de faire son propre jeu (ou son propre framework, voire son propre moteur de jeu) depuis zéro (ou depuis un petit framework).</p>
+<p>Dans le monde professionnel, et surtout à l'époque, la plupart des jeux sont crées de cette manière là, avec un contrôle total où l'équipe chargée du développement du jeu s'occupe aussi de la réalisation de tout ce qu'il y a sous le jeu.</p>
+<h3><a class="header" href="#avec-un-game-framework" id="avec-un-game-framework">Avec un game framework</a></h3>
+<p>La deuxième technique, c'est d'utiliser un <strong>framework</strong>. Tout comme dans le monde du développement web qu'on connaît désormais assez bien, il existe des <strong>frameworks</strong> qui exposent déjà la plupart des fonctionnalités complexes, il faut juste se servir et composer son jeu via les primitives. Voici des exemples connus de frameworks:</p>
+<ul>
+<li>
+<p>Frameworks plutôt minimalistes:</p>
+<ul>
+<li><a href="https://www.libsdl.org/">SDL (C)</a>: Bonne base pour construire autour, gère la partie cross-platform et gestion de la fenêtre et des évènements. Plusieurs bindings dans d'autres langages.</li>
+<li><a href="https://www.sfml-dev.org/">SFML (C++)</a>: Equivalent plus haut niveau de la SDL, plus de fonctionnalités. Plusieurs bindings dans d'autres langages.</li>
+</ul>
+</li>
+<li>
+<p>Frameworks plus complets:</p>
+<ul>
+<li><a href="https://libgdx.badlogicgames.com/">LibGDX (JVM)</a>: Framework complet plutôt simple à utiliser.</li>
+<li><a href="https://phaser.io/">Phaser (JS)</a>: Contient une super documentation avec pas mal d'exemples, et tourne sur le navigateur.</li>
+<li><a href="http://www.monogame.net/">XNA/MonoGame (C#)</a>: Le bon vieux projet XNA réalisé par Microsoft pour faire des jeux cross-platform Windows/Xbox 360 a l'époque. Beaucoup de jeux indépendants connus ont été réalisés via XNA, dont <em>Super Meat Boy</em>, <em>Bastion</em>, <em>Fez</em> et bien d'autres.
+<ul>
+<li>XNA ayant été &quot;tué&quot; par Microsoft, le projet MonoGame à pris le relais, se basant sur le projet Mono pour apporter la cross-compatibilité sur la plupart des plateformes.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Mention spéciale pour le langage Haxe et les projets par dessus (comme <a href="http://haxeflixel.com/">HaxeFlixel</a>), qui possède un concept super cool que je vous invite à regarder sur leur <a href="https://haxe.org/">site officiel</a>. Pour le teasing, <em>Dead Cells</em> a été réalisé en Haxe.</p>
+<h3><a class="header" href="#avec-un-game-engine" id="avec-un-game-engine">Avec un game engine</a></h3>
+<p>Finalement, la troisième technique, c'est le <strong>moteur de jeu (game engine)</strong>, qui expose un maximum de fonctionnalités à travers une interface pour faire son jeu d'une façon beaucoup plus interactive. Dans le domaine du game engine, il y a en gros deux types: les moteurs spécialisés, et les moteurs plutôt génériques.</p>
+<ul>
+<li>
+<p>Moteurs de jeu spécialisés:</p>
+<ul>
+<li><a href="https://fr.wikipedia.org/wiki/MUGEN_(moteur_de_jeu)">M.U.G.E.N</a>: Ce &quot;moteur&quot; sert à réaliser votre propre jeu de combat à la <em>Street Fighter</em>. Super fun à utiliser.</li>
+<li><a href="http://www.rpgmakerweb.com/">RPG Maker</a>: Celui-ci sert à réaliser son propre RPG, du classique <em>Final Fantasy</em> à <em>Zelda</em> en passant par <em>Pokémon</em> (si on plie bien le système).</li>
+<li><a href="http://www.rpgmakerweb.com/">Adventure Game Studio</a>: Pour faire ses propres jeux en point-and-click.</li>
+</ul>
+</li>
+<li>
+<p>Moteurs de jeu génériques:</p>
+<ul>
+<li><a href="https://www.yoyogames.com/gamemaker">Game Maker</a>: Un soft payant plutôt facile à prendre en main pour réaliser n'importe quel type de jeu (surtout dédié aux jeux 2D). Je conseille aussi <a href="https://www.scirra.com/">Construct</a> dans le même genre.</li>
+<li><a href="https://godotengine.org/">Godot Engine</a>: Un super moteur open-source 2D et 3D pour réaliser n'importe quel type de jeu que je vais vous présenter aujourd'hui.</li>
+<li><a href="https://unity.com/fr">Unity3D</a>: Sûrement le moteur de jeu le plus connu aujourd'hui. Blindé de features, énormément de jeux réalisés avec, payant pour la version Pro (si on veut un thème sombre par exemple).</li>
+<li><a href="https://www.cryengine.com/">CryEngine</a>: Le moteur de jeu open-source made in Crytek, les créateurs de <em>Crysis</em>. Assez lourd et nécessite un PC plutôt performant.</li>
+<li><a href="https://www.unrealengine.com/en-US/">Unreal Engine</a>: Le monstrueux moteur de jeu open-source made in Epic Games, entre autres créateurs d'<em>Unreal Tournament</em>. Cette chose est massive, blindée de choses utiles, bouffe pas mal d'espace disque, de RAM, de CPU et de GPU. Fait souffrir les PCs portables non-adaptés pour le jeu.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="PREREQUISITES.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="THEORY-GODOT.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="PREREQUISITES.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="THEORY-GODOT.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

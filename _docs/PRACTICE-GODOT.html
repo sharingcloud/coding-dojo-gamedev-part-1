@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Pratique - Prise en main de Godot - Coding Dojo - Gamedev Part 1</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Gamedev Part 1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="HOME.html">Introduction</a></li><li><a href="PREREQUISITES.html"><strong aria-hidden="true">1.</strong> Pré-requis</a></li><li><a href="THEORY-GAMEDEV.html"><strong aria-hidden="true">2.</strong> Théorie - Game development</a></li><li><a href="THEORY-GODOT.html"><strong aria-hidden="true">3.</strong> Théorie - Godot Engine</a></li><li><a href="PRACTICE-GODOT.html" class="active"><strong aria-hidden="true">4.</strong> Pratique - Prise en main de Godot</a></li><li><a href="PRACTICE-NODES.html"><strong aria-hidden="true">5.</strong> Pratique - Jouer avec les nodes</a></li><li><ol class="section"><li><a href="PRACTICE-NODES-STARS.html"><strong aria-hidden="true">5.1.</strong> Un fond et des étoiles</a></li><li><a href="PRACTICE-NODES-ENEMY.html"><strong aria-hidden="true">5.2.</strong> Des ennemis</a></li><li><a href="PRACTICE-NODES-HUD.html"><strong aria-hidden="true">5.3.</strong> Un HUD pour le score</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Coding Dojo - Gamedev Part 1</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#pratique---prise-en-main-de-godot" id="pratique---prise-en-main-de-godot">Pratique - Prise en main de Godot</a></h1>
+<h2><a class="header" href="#ouverture-du-projet" id="ouverture-du-projet">Ouverture du projet</a></h2>
+<p>On va commencer par ouvrir Godot puis charger le projet d'exemple dans <code>./sc-space-shooter-pack</code>.</p>
+<p>Il faut appuyer sur le bouton <strong>&quot;Import&quot;</strong>.</p>
+<p style="text-align: center">
+  <img src="./assets/godot-project-manager.png">
+</p>
+<p>Et appuyer sur <strong>&quot;Importer&quot;</strong> après avoir sélectionné le chemin vers le projet.</p>
+<p style="text-align: center">
+  <img src="./assets/godot-project-manager-import.png">
+</p>
+<p>Normalement, vous devriez voir l'interface de Godot.</p>
+<p style="text-align: center">
+  <img src="./assets/godot-editor-full.png">
+</p>
+<h2><a class="header" href="#configuration-de-léditeur" id="configuration-de-léditeur">Configuration de l'éditeur</a></h2>
+<p>Avant de commencer à jouer avec Godot, on va configurer l'intégration avec Visual Studio Code.</p>
+<p>Il faut d'abord ouvrir les paramètres de l'éditeur.</p>
+<p style="text-align: center">
+  <img src="./assets/godot-editor-settings-popup.png">
+</p>
+<p>Puis aller dans la section <strong>&quot;Text Editor / External&quot;</strong>.<br />
+Ici, il faudra:</p>
+<ul>
+<li>cocher la case <strong>Use External Editor</strong></li>
+<li>mettre le chemin vers VSCode dans <strong>Exec Path</strong>
+<ul>
+<li>exemple: <code>C:/Users/Moi/AppData/Local/Programs/Microsoft VS Code/Code.exe</code></li>
+</ul>
+</li>
+<li>mettre <code>{project} --goto {file}:{line}:{col}</code> dans <strong>Exec Flags</strong></li>
+</ul>
+<p style="text-align: center">
+  <img src="./assets/godot-editor-settings-external.png">
+</p>
+<p>Et voilà, VS Code est intégré à Godot.</p>
+<h2><a class="header" href="#et-si-on-jouait-avec-le-projet-" id="et-si-on-jouait-avec-le-projet-">Et si on jouait avec le projet ?</a></h2>
+<p>Pour tester la scène courante (<code>GameScreen</code>), appuyez sur le clap en haut à droite.</p>
+<p style="text-align: center">
+  <img src="./assets/play-scene.png">
+</p>
+<p>Pour déplacer le vaisseau, utilisez les <strong>touches fléchées</strong> et la touche <strong>ESPACE (ou ENTREE)</strong> pour tirer.
+Fermez la fenêtre quand vous en avez marre.</p>
+<h2><a class="header" href="#bon-alors-a-quoi-ça-ressemble-tout-ça-dans-godot-" id="bon-alors-a-quoi-ça-ressemble-tout-ça-dans-godot-">Bon alors, a quoi ça ressemble tout ça dans Godot ?</a></h2>
+<p>Godot repose sur un principe de scenes (scènes) et de nodes (noeuds).</p>
+<p>Prenez la scène actuellement ouverte, <code>GameScreen</code>, et regardez la &quot;tree view&quot; en haut à gauche.</p>
+<p style="text-align: center">
+  <img src="./assets/treeview.png">
+</p>
+<p>Ici, on voit qu'il y a en tout 5 nodes dans cette scène, avec un noeud racine de type <code>Control</code> appelé <code>GameScreen</code>.
+Chaque scène possède un noeud racine comme celui-ci.
+Voici les nodes qui composent cette scène:</p>
+<ul>
+<li>Background (type <code>ColorRect</code>)
+<ul>
+<li>Définit une couleur à appliquer sur la scène, ici du noir.</li>
+</ul>
+</li>
+<li>Player (type <code>Player</code> (custom))
+<ul>
+<li>Représente le joueur via une autre scène du projet.</li>
+</ul>
+</li>
+<li>Spawner (type <code>Spawner</code> (custom))
+<ul>
+<li>Système de spawner qui peut faire apparaître n'importe quel type d'objet. C'est une autre scène du projet.</li>
+</ul>
+</li>
+<li>Bullets (type <code>Node2D</code>)
+<ul>
+<li>Un conteneur pour stocker les balles qui seront instanciées.</li>
+</ul>
+</li>
+</ul>
+<p>Il existe plusieurs types de nodes dans Godot, et il est possible de créer ses propres nodes en partant de nodes déja existants et en leur liant des scripts. On verra des exemples par la suite.
+Si ça vous semble un peu confus, c'est normal, on va pratiquer.</p>
+<p>On va commencer à changer des trucs et créer de nouveaux nodes dans la prochaine partie.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="THEORY-GODOT.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="PRACTICE-NODES.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="THEORY-GODOT.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="PRACTICE-NODES.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

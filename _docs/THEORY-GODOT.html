@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Théorie - Godot Engine - Coding Dojo - Gamedev Part 1</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Gamedev Part 1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="HOME.html">Introduction</a></li><li><a href="PREREQUISITES.html"><strong aria-hidden="true">1.</strong> Pré-requis</a></li><li><a href="THEORY-GAMEDEV.html"><strong aria-hidden="true">2.</strong> Théorie - Game development</a></li><li><a href="THEORY-GODOT.html" class="active"><strong aria-hidden="true">3.</strong> Théorie - Godot Engine</a></li><li><a href="PRACTICE-GODOT.html"><strong aria-hidden="true">4.</strong> Pratique - Prise en main de Godot</a></li><li><a href="PRACTICE-NODES.html"><strong aria-hidden="true">5.</strong> Pratique - Jouer avec les nodes</a></li><li><ol class="section"><li><a href="PRACTICE-NODES-STARS.html"><strong aria-hidden="true">5.1.</strong> Un fond et des étoiles</a></li><li><a href="PRACTICE-NODES-ENEMY.html"><strong aria-hidden="true">5.2.</strong> Des ennemis</a></li><li><a href="PRACTICE-NODES-HUD.html"><strong aria-hidden="true">5.3.</strong> Un HUD pour le score</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Coding Dojo - Gamedev Part 1</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#théorie---godot-engine" id="théorie---godot-engine">Théorie - Godot Engine</a></h1>
+<p style="text-align: center">
+  <img src="./assets/godot-logo.png" width="250" height="250" />
+</p>
+<h2><a class="header" href="#présentation-de-godot-engine" id="présentation-de-godot-engine">Présentation de Godot Engine</a></h2>
+<p>Godot Engine est un moteur complètement open-source, assez jeune dans le monde du gamedev, mais super prometteur.</p>
+<p>Pour avoir plus d'informations, vous pouvez directement aller sur leur <a href="https://godotengine.org/">site officiel</a>.</p>
+<blockquote>
+<p>Godot Engine is a feature-packed, cross-platform game engine to create 2D and 3D games from a unified interface. It provides a comprehensive set of common tools, so users can focus on making games without having to reinvent the wheel. Games can be exported in one click to a number of platforms, including the major desktop platforms (Linux, macOS, Windows) as well as mobile (Android, iOS) and web-based (HTML5) platforms.</p>
+<p>Godot is completely free and open source under the permissive MIT license. No strings attached, no royalties, nothing. Users’ games are theirs, down to the last line of engine code. Godot’s development is fully independent and community-driven, empowering users to help shape their engine to match their expectations. It is supported by the Software Freedom Conservancy not-for-profit.</p>
+</blockquote>
+<blockquote>
+<p>Create games with ease using Godot's unique approach to game development.</p>
+<ul>
+<li><strong>Nodes for all your needs</strong>. Godot comes with hundreds of built-in nodes that make game design a breeze. You can also create your own for custom behaviors, editors and much more.</li>
+<li><strong>Flexible scene system</strong>. Create node compositions with support for instancing and inheritance.</li>
+<li><strong>Visual editor</strong> with all the tools you need packed into a beautiful and uncluttered context-sensitive UI.</li>
+<li><strong>Friendly content creation pipeline</strong> for artists, level designers, animators and everyone in between.</li>
+<li><strong>Persistent live editing</strong> where changes are not lost after stopping the game. It even works on mobile devices!</li>
+<li><strong>Create your own custom tools</strong> with ease using the incredible tool system.</li>
+</ul>
+</blockquote>
+<p style="text-align: center">
+  <img src="./assets/godot-editor.png" />
+  <br />
+  <i>Voici l'éditeur de Godot</i>
+</p>
+<p>Pour la partie scripting, Godot permet de développer dans plusieurs langages de programmation:</p>
+<ul>
+<li><strong>GDScript</strong> (principalement utilisé): un langage fait maison, qui reprend énormément de principes à Python. Permet d'écrire peu de code pour faire beaucoup.</li>
+<li><strong>C#</strong> (via Mono): un langage qui a déja fait ses preuves (dans le monde du gamedev il est principalement utilisé dans Unity), mais son intégration dans Godot est encore un peu instable, sans support pour le mobile actuellement.</li>
+<li><strong>C++</strong> (code natif): à l'ancienne, retour du mode warrior.</li>
+<li><strong>Rust, Python, et autres</strong> (via GDNative): il est possible de faire du code natif dans d'autres langages si besoin, c'est cependant plus complexe à mettre en place.</li>
+</ul>
+<h2><a class="header" href="#présentation-du-projet-un-space-shooter" id="présentation-du-projet-un-space-shooter">Présentation du projet: un space shooter</a></h2>
+<p>On va entrer dans le vif du sujet: aujourd'hui on va faire un space shooter, on va donc faire le tour de ce qu'est un space shooter.</p>
+<p>Oui c'est en effet un &quot;jeu de tir dans l'espace&quot;, mais voici des caractéristiques plus spécifiques (et surtout utiles):</p>
+<ul>
+<li>On va faire un jeu <strong>en 2D</strong> (pour éviter de se cramer les ailes avant de partir),</li>
+<li>On va <strong>diriger un vaisseau</strong> qui <strong>tire</strong> sur <strong>des rochers</strong> et <strong>des ennemis</strong>,</li>
+<li>Le scrolling va être <strong>vertical</strong>, donc du haut vers le bas (plutot que horizontal),</li>
+<li>En gros voilà.</li>
+</ul>
+<p>Pour cela, on va utiliser un pack de contenu déja fait pour réaliser notre space shooter, réalisé par Kenney, qui propose des super packs pour plusieurs types de jeux vidéos.</p>
+<p>Voici le pack en question: <a href="https://www.kenney.nl/assets/space-shooter-redux">https://www.kenney.nl/assets/space-shooter-redux</a>, et un exemple de jeu réalisé juste avec ce pack:</p>
+<p style="text-align: center;">
+  <img src="./assets/sample.png" />
+</p>
+<p>On ne va peut être pas arriver à ce résultat en 2h (ou ce qu'il reste du temps imparti), mais si vous continuez chez vous, vous pouvez y arriver sans problème assez rapidement.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="THEORY-GAMEDEV.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="PRACTICE-GODOT.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="THEORY-GAMEDEV.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="PRACTICE-GODOT.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

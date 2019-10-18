@@ -329,7 +329,7 @@ On va devoir un peu modifier le script de `GameScreen` d'abord:
 - Sous la ligne `onready var rock_spawner = $RockSpawner`: ajouter la ligne:
 
 ```py
-onready var rock_spawner = $RockSpawner
+onready var enemy_spawner = $EnemySpawner
 ```
 
 - Dans la fonction `_ready`: ajouter la ligne:

@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Un fond et des étoiles - Coding Dojo - Gamedev Part 1</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Gamedev Part 1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="HOME.html">Introduction</a></li><li><a href="PREREQUISITES.html"><strong aria-hidden="true">1.</strong> Pré-requis</a></li><li><a href="THEORY-GAMEDEV.html"><strong aria-hidden="true">2.</strong> Théorie - Game development</a></li><li><a href="THEORY-GODOT.html"><strong aria-hidden="true">3.</strong> Théorie - Godot Engine</a></li><li><a href="PRACTICE-GODOT.html"><strong aria-hidden="true">4.</strong> Pratique - Prise en main de Godot</a></li><li><a href="PRACTICE-NODES.html"><strong aria-hidden="true">5.</strong> Pratique - Jouer avec les nodes</a></li><li><ol class="section"><li><a href="PRACTICE-NODES-STARS.html" class="active"><strong aria-hidden="true">5.1.</strong> Un fond et des étoiles</a></li><li><a href="PRACTICE-NODES-ENEMY.html"><strong aria-hidden="true">5.2.</strong> Des ennemis</a></li><li><a href="PRACTICE-NODES-HUD.html"><strong aria-hidden="true">5.3.</strong> Un HUD pour le score</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Coding Dojo - Gamedev Part 1</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#un-fond-avec-des-étoiles" id="un-fond-avec-des-étoiles">Un fond avec des étoiles</a></h1>
+<h2><a class="header" href="#préparation" id="préparation">Préparation</a></h2>
+<p>Avec juste un fond noir ça fait pas vraiment espace, il manque un truc: des étoiles.<br />
+Donc on va faire en sorte d'illuminer un peu tout ça, via une petite arnaque: on va utiliser un <strong>système de particules</strong>.</p>
+<p>Avec un système de particules, on peut faire n'importe quoi:</p>
+<ul>
+<li>De la pluie,</li>
+<li>De la neige,</li>
+<li>Du feu,</li>
+<li>Une explosion,</li>
+<li>De la fumée,</li>
+<li>Ou bien encore des étoiles !</li>
+</ul>
+<p>Faut pas avoir peur, un système de particules c'est assez simple finalement, ça a juste beaucoup d'options, ce qui fait qu'on peut faire ce qu'on veut.</p>
+<p>Alors on va tout de suite créer notre première scène. Appuyez sur <strong>Scene -&gt; New Scene</strong>.</p>
+<p style="text-align: center">
+  <img src="./assets/godot-editor-new-scene.png">
+</p>
+<p>Un nouvel onglet est apparu, et sur la gauche vous avez le choix pour le node racine.<br />
+Parmi les nodes proposés, il y a:</p>
+<ul>
+<li>2D Scene: Va choisir un node de type <code>Node2D</code> en racine.</li>
+<li>3D Scene: Va choisir un node de type <code>Node</code> en racine.</li>
+<li>User Interface: Va choisir un node de type <code>Control</code> en racine.</li>
+<li>Custom Node: Va vous permettre de sélectionner un autre node.</li>
+</ul>
+<p style="text-align: center">
+  <img src="./assets/godot-editor-new-scene-tree.png">
+</p>
+<p>Partez sur un node <code>Control</code>, et enregistrez la scène dans le dossier <code>res://fx/</code> sous le nom <code>Stars.tscn</code>.<br />
+Renommez le node <code>Control</code> en <code>Stars</code>.
+Puis changez le <code>Layout</code> du noeud pour le passer en <code>Full Rect</code>.</p>
+<p style="text-align: center">
+  <img src="./assets/godot-editor-layout.png">
+</p>
+<p>Le node va maintenant prendre toute la surface de l'app.<br />
+On va créer un node de type <code>ColorRect</code> (en noir) qui va prendre toute la place du parent pour répliquer un semblant d'espace.</p>
+<p>Il faut faire un clique droit sur le node <code>Stars</code> puis <code>Add Child Node</code>.</p>
+<p style="text-align: center">
+  <img src="./assets/godot-editor-add-child-node.png">
+</p>
+<p>Vous avez toute une série de nodes à disposition.<br />
+Cherchez <code>ColorRect</code> puis appuyez sur <code>Create</code>.</p>
+<p style="text-align: center">
+  <img src="./assets/godot-editor-new-node.png">
+</p>
+<p>Recommencez l'opération avec le clique droit sur <code>Stars</code>, <code>Add Child Node</code> puis cherchez <code>Particles2D</code>.<br />
+Vous devriez avoir cet arbre de nodes:</p>
+<p style="text-align: center">
+  <img src="./assets/particles-tree.png">
+</p>
+<h2><a class="header" href="#un-fond" id="un-fond">Un fond</a></h2>
+<p>On va commencer par s'occuper du <code>ColorRect</code>. Cliquez dessus et regardez sur la droite.</p>
+<p style="text-align: center">
+  <img src="./assets/godot-editor-inspector.png">
+</p>
+<p>Godot se repose sur des concepts d'héritages, reprenant les principes de la POO. Ici, on voit 4 sections:</p>
+<ul>
+<li>ColorRect</li>
+<li>Control</li>
+<li>CanvasItem</li>
+<li>Node</li>
+</ul>
+<p>On voit en fait ici l'héritage des noeuds. <code>ColorRect</code> hérite de <code>Control</code>, qui hérite de <code>CanvasItem</code>, qui hérite de <code>Node</code>.<br />
+On peut depuis l'inspecteur changer chaque propriété exposée dans chacun de ces nodes.<br />
+Ce qui nous intéresse ici, c'est le champ <code>Color</code> de <code>ColorRect</code>. Cliquez dessus et changez la couleur pour mettre du noir.</p>
+<p>Le petit carré devrait devenir noir dans la vue principale au centre. On va le faire grandir pour qu'il prenne toute la place du parent, de la même façon que tout à l'heure: <code>Layout</code> &gt; <code>Full Rect</code>.</p>
+<p style="text-align: center">
+  <img src="./assets/particles-color-rect.png">
+</p>
+<p>On vient de répliquer le node <code>Background</code> de la scène <code>GameScreen</code> de tout à l'heure: on a un fond noir.</p>
+<h2><a class="header" href="#des-étoiles" id="des-étoiles">Des étoiles</a></h2>
+<p>On va se concentrer sur les particules maintenant.</p>
+<p>Cliquez sur le node <code>Particles2D</code>, qui a un petit warning à coté: si vous survolez, il vous dit qu'il y a pas de <strong>material</strong> pour gérer les particules.</p>
+<p>Avec Godot, il y a deux types de <strong>material</strong> pour les particules:</p>
+<ul>
+<li>ShaderMaterial: Utilisation d'un <strong>shader</strong>. Ca parle peut être à certains, le monde des shaders est un sujet hyper complexe, on ne va pas attaquer ça aujourd'hui.</li>
+<li>ParticlesMaterial: Utilisation d'un <strong>material</strong> configurable depuis l'inspecteur, ce qu'on va choisir.</li>
+</ul>
+<p>Pour lier un <strong>material</strong>, il faut aller dans l'inspecteur à droite, puis choisir un <code>New ParticlesMaterial</code> dans la section <code>Particles2D</code> &gt; <code>Process Material</code> &gt; <code>Material</code>.</p>
+<p style="text-align: center">
+  <img src="./assets/process-material.png">
+</p>
+<p>Pour le configurer, il faut ensuite cliquer sur ce material, et les paramètres vont apparaître en dessous. C'est ici que tout va se passer.</p>
+<p>On va commencer par déplacer le node sur la vue du centre pour le mettre au centre de la scène, soit en drag &amp; drop, soit en changeant la valeur dans <code>Node2D</code> &gt; <code>Transform</code> &gt; <code>Position</code>.
+Si vous zoomez sur l'interface, vous voyez que le système de particules est actif, et que des particules sont bien générées.</p>
+<p style="text-align: center">
+  <img src="./assets/particles-position.png">
+</p>
+<p>D'ici, vous pouvez configurer le système de particules comme vous le voulez, jouer avec la couleur, la taille, la texture, la vitesse, la gravité, et plein d'autres paramètres.</p>
+<p>Pour avoir un truc qui ressemble à un ensemble d'étoiles voici ce que je recommande:</p>
+<ul>
+<li><code>Emission Shape -&gt; Shape</code>: Choisir <code>Box</code></li>
+<li><code>Emission Shape -&gt; Box Extents</code>: Choisir <code>(X: 250, Y: 425, Z: 1)</code></li>
+<li><code>Gravity -&gt; Gravity</code> &gt; Choisir <code>(X: 0, Y: 0, Z: 0)</code></li>
+</ul>
+<p>Ca ressemble déja un peu à des étoiles.</p>
+<ul>
+<li><code>Scale -&gt; Scale</code>: Choisir <code>4</code></li>
+<li><code>Scale -&gt; Scale Random</code>: Choisir <code>1</code></li>
+<li><code>Scale -&gt; Scale Curve</code>: Choisir <code>New CurveTexture</code></li>
+<li><code>Scale -&gt; Scale Curve -&gt; Curve</code>: Déplacer le dernier point vers le bas à 0</li>
+</ul>
+<p>Maintenant on va jouer avec la couleur.</p>
+<ul>
+<li><code>Color -&gt; Color Ramp</code>: Choisir <code>New GradientTexture</code></li>
+<li><code>Color -&gt; Color Ramp -&gt; Gradient</code>: Choisir <code>New Gradient</code></li>
+<li><code>Color -&gt; Color Ramp -&gt; Gradient -&gt; Gradient</code>: Cliquer sur le curseur à gauche, puis sur la couleur dans l'encart à droite, et choisir une couleur blanche (ou la couleur que vous souhaitez).</li>
+<li><code>Color -&gt; Color Ramp -&gt; Gradient -&gt; Gradient</code>: Cliquer sur le curseur à droite, puis sur la couleur dans l'encart à droite, et déplacer le curseur A (Alpha) à 0.</li>
+</ul>
+<p>Voilà, on a un effet &quot;fade-out&quot;.</p>
+<p style="text-align: center">
+  <img src="./assets/particles.gif">
+</p>
+<p>Tada, des étoiles !</p>
+<p>Oubliez pas d'enregistrer la scène, on va pouvoir l'intégrer au <code>GameScreen</code>.</p>
+<h2><a class="header" href="#intégration" id="intégration">Intégration</a></h2>
+<p>Retournez sur le <code>GameScreen</code>, supprimez le node <code>Background</code> via un clique-droit et <code>Delete Node</code>.<br />
+Ensuite, clique-droit sur le <code>GameScreen</code> puis <code>Instance Child Scene</code>, et ajoutez votre scène <code>Stars</code>.<br />
+Si ce n'est pas le cas, déplacez le nouveau noeud <code>Stars</code> vers le haut de l'arbre, en premier sous <code>GameScreen</code>, et renommez le en <code>Background</code>.</p>
+<p>Faites <code>Play Scene</code>, et voilà, les étoiles en action !</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="PRACTICE-NODES.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="PRACTICE-NODES-ENEMY.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="PRACTICE-NODES.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="PRACTICE-NODES-ENEMY.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

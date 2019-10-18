@@ -1,0 +1,729 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Des ennemis - Coding Dojo - Gamedev Part 1</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Gamedev Part 1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="HOME.html">Introduction</a></li><li><a href="PREREQUISITES.html"><strong aria-hidden="true">1.</strong> Pré-requis</a></li><li><a href="THEORY-GAMEDEV.html"><strong aria-hidden="true">2.</strong> Théorie - Game development</a></li><li><a href="THEORY-GODOT.html"><strong aria-hidden="true">3.</strong> Théorie - Godot Engine</a></li><li><a href="PRACTICE-GODOT.html"><strong aria-hidden="true">4.</strong> Pratique - Prise en main de Godot</a></li><li><a href="PRACTICE-NODES.html"><strong aria-hidden="true">5.</strong> Pratique - Jouer avec les nodes</a></li><li><ol class="section"><li><a href="PRACTICE-NODES-STARS.html"><strong aria-hidden="true">5.1.</strong> Un fond et des étoiles</a></li><li><a href="PRACTICE-NODES-ENEMY.html" class="active"><strong aria-hidden="true">5.2.</strong> Des ennemis</a></li><li><a href="PRACTICE-NODES-HUD.html"><strong aria-hidden="true">5.3.</strong> Un HUD pour le score</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Coding Dojo - Gamedev Part 1</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#des-ennemis" id="des-ennemis">Des ennemis</a></h1>
+<p>Dans cette partie, on va faire un ennemi, prêt à être utilisé dans le jeu.</p>
+<h2><a class="header" href="#préparation" id="préparation">Préparation</a></h2>
+<p>C'est parti, <code>Scene -&gt; New Scene</code>, on part de <code>Custom Node</code>, on choisit un noeud <code>Area2D</code> et on enregistre sous <code>res://actors/Enemy.tscn</code>.<br />
+On renomme le nouveau noeud en <code>Enemy</code> et on commence.</p>
+<p>Alors tout d'abord, pourquoi <code>Area2D</code> ?<br />
+C'est un node qui permet de gérer les collisions en se basant sur la position des objets, au lieu d'utiliser une simulation physique: c'est plus rapide.<br />
+On aura besoin de ça pour détecter la collision avec les balles et le joueur.</p>
+<p>On va avoir besoin des nodes suivants en enfant:</p>
+<ul>
+<li>Une image: donc d'un noeud <strong>Sprite</strong></li>
+<li>Une forme pour gérer les collisions: <strong>CollisionShape2D</strong></li>
+<li>Un système de particules: <strong>Particles2D</strong></li>
+<li>Un système d'animation: <strong>AnimationPlayer</strong></li>
+</ul>
+<p>On va aussi instancier des scènes existantes (depuis les scènes du projet):</p>
+<ul>
+<li>Le système de balles: <strong>actors/BulletSystem.tscn</strong></li>
+<li>Une explosion: <strong>fx/Explosion.tscn</strong></li>
+</ul>
+<p style="text-align: center">
+  <img src="./assets/enemy-base.png">
+</p>
+<h2><a class="header" href="#préparation-de-larea2d" id="préparation-de-larea2d">Préparation de l'Area2D</a></h2>
+<p>On va commencer par paramétrer le node racine, qui est un Area2D, en appuyant dessus. Dans l'inspecteur, ouvrez la sous-section <code>Area2D -&gt; Collision</code>.<br />
+En laissant le curseur sur les premières cases, vous voyez le label attribué à chacune.</p>
+<p>Une case correspond à un type d'objet, dans cette ordre là (que j'ai déja défini dans les paramètres du projet):</p>
+<ul>
+<li>Bit 0 (value 1): Player</li>
+<li>Bit 1 (value 2): Rock</li>
+<li>Bit 2 (value 4): Enemy</li>
+<li>Bit 3 (value 8): Bullet</li>
+</ul>
+<p>Voici ce qu'il faut faire:</p>
+<ul>
+<li>Pour le champ Layer, ne cocher que la 3e case (correspondant à Enemy)</li>
+<li>Pour le champ Mask, ne cocher que la 1ere et 4e case (Player et Bullet)</li>
+</ul>
+<p>Cela permet au système de détection de collisions de ne remonter que les collisions entre Enemy et Bullet, ou Enemy et Player (et non Enemy et Rock).</p>
+<p style="text-align: center">
+  <img src="./assets/enemy-collision.png">
+</p>
+<p>Ensuite, il faut aller dans la section <code>Node</code> en haut à droite, appuyer sur <code>Groups</code>, puis taper <code>Player</code> et appuyer sur <code>Add</code>, et hop, on a ajouté le groupe <code>Enemy</code> sur le noeud racine.</p>
+<h2><a class="header" href="#choix-de-limage" id="choix-de-limage">Choix de l'image</a></h2>
+<p>On appuie sur le <code>Sprite</code> dans la treeview, on choisit une image dans les assets en bas à droite dans le dossier <code>res://assets/textures/Enemies/</code>, et on fait un glisser-déposer dans le champ <code>Sprite -&gt; Texture</code> de l'inspecteur (on peut aussi appuyer sur le champ et faire <code>Load</code>).</p>
+<p style="text-align: center">
+  <img src="./assets/enemy-assets.png">
+</p>
+<p>Si besoin, on peut choisir une &quot;teinte&quot; en changeant la couleur dans le champ <code>CanvasItem -&gt; Visibility -&gt; Modulate</code>.</p>
+<p>On est bon pour l'image.</p>
+<h2><a class="header" href="#définition-du-shape-de-collision" id="définition-du-shape-de-collision">Définition du shape de collision</a></h2>
+<p>On va maintenant spécifier la surface de contact de l'ennemi. Pour ça, on sélectionne le node <code>CollisionShape2D</code>, et on crée un nouveau <code>CircleShape2D</code> dans le champ <code>CollisionShape2D -&gt; Shape</code> de l'inspecteur.</p>
+<p>Il y a deux façons pour définir la taille du shape: avec l'inspecteur en sélectionnant le shape, ou dans la vue centrale en zoomant et en déplaçant le point orange. Le shape apparaît en bleu.<br />
+Faites en sorte que le shape recouvre le sprite de l'ennemi.</p>
+<p style="text-align: center">
+  <img src="./assets/enemy-shape.png">
+</p>
+<h2><a class="header" href="#effet-de-particules" id="effet-de-particules">Effet de particules</a></h2>
+<p>Je vais aller vite sur les particules, vous pouvez faire ce que vous voulez.<br />
+Voici ce que j'ai fait:</p>
+<p>Côté <code>Particles2D</code>:</p>
+<ul>
+<li><code>Amount</code>: <code>30</code></li>
+<li><code>Time -&gt; Lifetime</code>: <code>2</code></li>
+<li><code>Time -&gt; Speed Scale</code>: <code>2</code></li>
+<li><code>Drawing -&gt; Local Coords</code>: <code>Off</code></li>
+</ul>
+<p>Côté <code>ParticlesMaterial</code>:</p>
+<ul>
+<li><code>Emission Shape -&gt; Shape</code>: <code>Box</code></li>
+<li><code>Emission Shape -&gt; Box Extents</code>: <code>(X: 30, Y: 30, Z: 1)</code></li>
+<li><code>Spread -&gt; Spread</code>: <code>180</code></li>
+<li><code>Gravity -&gt; Gravity</code>: <code>(X: 0, Y: 0, Z: 0)</code></li>
+<li><code>Initial Velocity -&gt; Velocity</code>: <code>20</code></li>
+<li><code>Angular Velocity -&gt; Velocity</code>: <code>100</code></li>
+<li><code>Angular Velocity -&gt; Velocity Random</code>: <code>1</code></li>
+<li><code>Scale -&gt; Scale</code>: <code>20</code></li>
+<li><code>Scale -&gt; Scale Random</code>: <code>1</code></li>
+<li><code>Scale -&gt; Scale Curve</code>: <code>New CurveTexture</code></li>
+<li><code>Scale -&gt; Scale Curve -&gt; Curve</code>: Déplacer le premier point vers le bas à 0</li>
+<li><code>Color -&gt; Color Ramp</code>: <code>New GradientTexture</code></li>
+<li><code>Color -&gt; Color Ramp -&gt; Gradient</code>: <code>New Gradient</code></li>
+<li><code>Color -&gt; Color Ramp -&gt; Gradient -&gt; Gradient</code>: Cliquer sur le curseur à gauche, puis sur la couleur dans l'encart à droite, et choisir une couleur violette (ou la couleur que vous souhaitez).</li>
+<li><code>Color -&gt; Color Ramp -&gt; Gradient -&gt; Gradient</code>: Cliquer sur le curseur à droite, puis sur la couleur dans l'encart à droite, choisir une couleur noire et déplacer le curseur A (Alpha) à 0.</li>
+</ul>
+<p>Côté <code>CanvasItem</code>:</p>
+<ul>
+<li><code>Visibility -&gt; Show Behind Parent</code>: <code>On</code></li>
+</ul>
+<p>Ca devrait donner quelque chose comme ça:</p>
+<p style="text-align: center">
+  <img src="./assets/enemy-particles.gif">
+</p>
+<h2><a class="header" href="#configuration-du-bulletsystem" id="configuration-du-bulletsystem">Configuration du BulletSystem</a></h2>
+<p>Côté <code>BulletSystem</code>, il faut:</p>
+<ul>
+<li>activer le <code>Enemy Mode</code>,</li>
+<li>définir le <code>Fire Delay</code> à <code>1</code>,</li>
+<li>et déplacer le noeud en dessous le vaisseau dans la vue centrale, pour que les lasers ne sortent pas du milieu du vaisseau.</li>
+</ul>
+<h2><a class="header" href="#animations" id="animations">Animations</a></h2>
+<p>On va maintenant jouer avec le système d'animations, lors de l'impact d'un laser sur le vaisseau (<code>hit</code>), et lors de l'explosion (<code>explode</code>).<br />
+Il faut également définir une animation où il ne se passe rien au cas où on voudrait réinitialiser certains paramètres (<code>idle</code>).</p>
+<p>Il faut sélectionner le node <code>AnimationPlayer</code> dans la tree-view, et regarder le panel du bas, section <code>Animation</code>.</p>
+<p style="text-align: center">
+  <img src="./assets/animation.png">
+</p>
+<p>Pour créer une animation, il faut appuyer sur le bouton <code>Animation -&gt; New</code>, puis taper le nom de l'animation. Commencez par créer <code>idle</code>, et définissez la en tant qu'animation par défaut (en autoplay).</p>
+<p style="text-align: center">
+  <img src="./assets/animation-auto.png">
+</p>
+<p>Ensuite, on recrée une animation appelée <code>hit</code>, et on va commencer à animer.</p>
+<p>Il faut savoir qu'avec Godot, la plupart des propriétés exposées dans l'inspecteur peuvent être animées. Pour cette animation, on va seulement changer la teinte du sprite de l'ennemi (soit <code>Sprite -&gt; CanvasItem -&gt; Visibility -&gt; Modulate</code>).
+Pour ajouter une <strong>track</strong> à l'animation, pendant que le panel d'animation est ouvert, appuyez sur la clé sur le côté de la propriété à animer. Ici, il faut ajouter <code>Modulate</code>, puis appuyer sur <code>Create</code> lorsque la popup apparaît.</p>
+<p style="text-align: center">
+  <img src="./assets/animation-key.png">
+</p>
+<p>Pour faire un effet de couleur, on met le curseur sur <code>0.1</code> seconde, puis on change la couleur de la propriété <code>Modulate</code> pour mettre du <em>rouge vif</em>, et on appuie sur la clé à côté.<br />
+Ensuite, on met le curseur sur <code>0.4</code> seconde, puis on remet la couleur en <em>blanc</em>, et on appuie sur la clé.<br />
+Enfin, on change la durée de l'animation (en dessous du bouton <code>Edit</code> sur la droite du panel <code>Animation</code>) pour mettre <code>0.4</code>.</p>
+<p style="text-align: center">
+  <img src="./assets/animation-hit.png">
+</p>
+<p>Vous pouvez appuyer sur les boutons Play/Stop du panel d'animation pour avoir un aperçu de l'animation.</p>
+<p>On continue en créant une nouvelle animation, appelée <code>explode</code>.</p>
+<p>Tout comme pour <code>hit</code>, on va juste animer la propriété <code>Modulate</code>, pour simuler la &quot;disparition&quot; progressive de l'image.</p>
+<p>Donc en s'assurant que le curseur est sur la position <code>0.0</code>, on appuie sur la clé à côté de <code>Modulate</code> avec la couleur <code>blanche</code>, puis on déplace le curseur sur <code>0.2</code>, on change la valeur de <code>Modulate</code> avec la couleur alpha à 0 pour rendre l'image transparente, et on ré-appuie sur la clé.</p>
+<p>Enfin, on change la durée de l'animation à <code>0.2</code> seconde.</p>
+<p style="text-align: center">
+  <img src="./assets/animation-explode.png">
+</p>
+<h2><a class="header" href="#scripting-début" id="scripting-début">Scripting: début</a></h2>
+<p>On va enfin commencer à coder ! (eh oui Coding Dojo).<br />
+Sélectionnez le node racine <code>Enemy</code>, et appuyez sur le bouton avec un genre de parchemin dessus.</p>
+<p style="text-align: center">
+  <img src="./assets/enemy-script-button.png">
+</p>
+<p>Une popup devrait ensuite s'afficher sur les options de configuration du script, faites juste <code>Create</code> et <em>magie</em>, VSCode se réveille, avec ce contenu:</p>
+<pre><code class="language-py">extends Area2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = &quot;text&quot;
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+    pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#    pass
+</code></pre>
+<p>Ceci est du GDScript. Prenez le temps de lire les commentaires.</p>
+<p>On va enlever tout ce code et remplacer par ça:</p>
+<pre><code class="language-py">extends Area2D
+
+#######
+# Enemy
+
+signal exploded
+
+# Max enemy speed
+export (Vector2) var max_speed = Vector2(150, 75)
+# Max hit points
+export (int) var hit_points = 3
+
+# Current velocity
+var velocity = Vector2()
+# Remaining hit points
+var remaining_hit_points = 0
+# Current accumulator
+var accu = 0
+
+onready var sprite = $Sprite
+onready var explosion = $Explosion
+onready var bullet_system = $BulletSystem
+onready var animation_player = $AnimationPlayer
+onready var particles = $Particles2D
+onready var collision_shape = $CollisionShape2D
+
+###################
+# Lifecycle methods
+
+func _ready():
+    &quot;&quot;&quot;When node is ready in game tree.&quot;&quot;&quot;
+    self.connect(&quot;area_entered&quot;, self, &quot;_on_area_entered&quot;)
+
+    self.velocity.y = self.max_speed.y
+    self.remaining_hit_points = self.hit_points
+
+func _process(delta):
+    &quot;&quot;&quot;Process each step.&quot;&quot;&quot;
+    self.accu += delta
+    self.velocity.x = sin(self.accu) * self.max_speed.x
+    self.bullet_system.firing = true
+
+    self.position += self.velocity * delta
+
+    if self.accu &gt;= 2 * PI:
+        self.accu -= 2 * PI
+
+    self._wrap_position()
+
+################
+# Public methods
+
+func hit():
+    &quot;&quot;&quot;Hit the enemy.&quot;&quot;&quot;
+    if self.remaining_hit_points &lt;= 0:
+        return
+
+    self.animation_player.play(&quot;hit&quot;)
+    self.remaining_hit_points -= 1
+    if self.remaining_hit_points &lt;= 0:
+        self.explode()
+
+func explode():
+    &quot;&quot;&quot;Make it explode.&quot;&quot;&quot;
+    # Reset velocity
+    self.velocity = Vector2()
+    self.collision_shape.set_deferred(&quot;disabled&quot;, true)
+    self.emit_signal(&quot;exploded&quot;)
+
+    self.particles.emitting = false
+    self.animation_player.play(&quot;explode&quot;)
+    self.explosion.play()
+    yield(get_tree().create_timer(0.5), &quot;timeout&quot;)
+    self.queue_free()
+
+func prepare_for_spawn(spawner, x, y):
+    &quot;&quot;&quot;Prepare for spawn (Spawner method).&quot;&quot;&quot;
+    self.position.x = x
+    self.position.y = y
+
+#################
+# Private methods
+
+func _wrap_position():
+    &quot;&quot;&quot;Wrap position on screen.&quot;&quot;&quot;
+    var game_size = self.get_viewport().size
+    var sprite_size = self.sprite.texture.get_size() * self.scale
+
+    var x_lower_limit = -sprite_size.x / 2
+    var x_upper_limit = game_size.x + sprite_size.x / 2
+    var y_lower_limit = game_size.y + sprite_size.y / 2
+
+    if self.position.x &lt; x_lower_limit:
+        self.position.x = x_upper_limit
+    elif self.position.x &gt; x_upper_limit:
+        self.position.x = x_lower_limit
+
+    if self.position.y &gt; y_lower_limit:
+        self.queue_free()
+
+#################
+# Event callbacks
+
+func _on_area_entered(area):
+    &quot;&quot;&quot;When colliding with another area.&quot;&quot;&quot;
+    if area.is_in_group(&quot;Bullet&quot;) and !area.enemy_mode:
+        area.queue_free()
+        self.hit()
+
+</code></pre>
+<p>Oui, ça fait pas mal, et y'a beaucoup de choses à expliquer, mais ce bout de script va donner vie à l'ennemi à l'écran. Avant d'expliquer le script, on va le voir à l'oeuvre.</p>
+<h2><a class="header" href="#intégration-des-ennemis" id="intégration-des-ennemis">Intégration des ennemis</a></h2>
+<p>Retournez sur le <code>GameScreen</code>.</p>
+<p>On va ajouter un node de type <code>Spawner</code> pour faire apparaître des ennemis sur la scène.<br />
+Clique droit sur le <code>GameScreen</code>, <code>Instance Child Scene</code>, et ajoutez <code>Spawner</code>. Renommez le <code>EnemySpawner</code>.<br />
+Dans l'inspecteur, changez <code>Spawn Delay</code> à <code>5</code>, et dans la valeur <code>Scene</code>, chargez la scène <code>Enemy</code> qu'on a crée dans cette partie.</p>
+<p>On va devoir un peu modifier le script de <code>GameScreen</code> d'abord:</p>
+<ul>
+<li>Sous la ligne <code>onready var rock_spawner = $RockSpawner</code>: ajouter la ligne:</li>
+</ul>
+<pre><code class="language-py">onready var enemy_spawner = $EnemySpawner
+</code></pre>
+<ul>
+<li>Dans la fonction <code>_ready</code>: ajouter la ligne:</li>
+</ul>
+<pre><code class="language-py">self.enemy_spawner.connect(&quot;spawn&quot;, self, &quot;_on_enemy_spawn&quot;)
+</code></pre>
+<ul>
+<li>Sous la fonction <code>_on_rock_spawn</code>: ajouter la fonction:</li>
+</ul>
+<pre><code class="language-py">func _on_enemy_spawn(spawner, element):
+    element.connect(&quot;exploded&quot;, self, &quot;_on_enemy_exploded&quot;)
+    element.bullet_system.connect(&quot;fire&quot;, self, &quot;_on_fire&quot;)
+</code></pre>
+<ul>
+<li>Puis sous <code>_on_rock_exploded</code>: ajouter la fonction:</li>
+</ul>
+<pre><code class="language-py">func _on_enemy_exploded():
+    self._add_score(500)
+</code></pre>
+<p>Faites <code>Play Scene</code>, et normalement, les ennemis devrait apparaître comme par magie toutes les 5 secondes et vous tirer dessus.</p>
+<p style="text-align: center">
+  <img src="./assets/game-enemies.png">
+</p>
+<h2><a class="header" href="#scripting-le-retour" id="scripting-le-retour">Scripting: le retour</a></h2>
+<p>On va maintenant rentrer dans le détail du script.</p>
+<pre><code class="language-py">extends Area2D
+
+#######
+# Enemy
+
+signal exploded
+
+# Max enemy speed
+export (Vector2) var max_speed = Vector2(150, 75)
+# Max hit points
+export (int) var hit_points = 3
+
+# Current velocity
+var velocity = Vector2()
+# Remaining hit points
+var remaining_hit_points = 0
+# Current accumulator
+var accu = 0
+
+onready var sprite = $Sprite
+onready var explosion = $Explosion
+onready var bullet_system = $BulletSystem
+onready var animation_player = $AnimationPlayer
+onready var particles = $Particles2D
+onready var collision_shape = $CollisionShape2D
+
+...
+</code></pre>
+<p>Sur cette première partie de script, on voit:</p>
+<ul>
+<li>Un signal <code>exploded</code>, émit quand l'ennemi explose,</li>
+<li>Des variables exportés: celles-ci apparaissent dans l'inspecteur:
+<ul>
+<li><code>max_speed</code>: La vitesse max d'un ennemi, c'est un Vector2, un objet avec une coordonnée X et Y,</li>
+<li><code>hit_points</code>: Le nombre de tirs qu'un ennemi peut recevoir avant d'exploser, un entier.</li>
+</ul>
+</li>
+<li>Des variables non-exportées: celles-ci n'apparaissent pas dans l'inspecteur:
+<ul>
+<li><code>velocity</code>: La vélocité actuelle de l'ennemi, Vector2,</li>
+<li><code>remaining_hit_points</code>: Nombre de tirs restants, entier,</li>
+<li><code>accu</code>: Variable utilisée pour le mouvement des ennemis, entier.</li>
+</ul>
+</li>
+<li>Des références vers des enfants du node courant: via la fonction <code>$</code>, on peut récupérer un noeud depuis le noeud courant en tapant son chemin, ici seulement son nom. <code>onready</code> veut dire que la variable sera automatiquement chargée lorsque le noeud sera intégré dans le game tree.
+<ul>
+<li><code>sprite</code>: Le sprite de l'ennemi,</li>
+<li><code>explosion</code>: Une explosion,</li>
+<li><code>bullet_system</code>: Le système qui s'occupe de la gestion des tirs,</li>
+<li><code>animation_player</code>: Le système d'animation,</li>
+<li><code>particles</code>: Le système de particules,</li>
+<li><code>collision_shape</code>: Le shape de collision de l'ennemi.</li>
+</ul>
+</li>
+</ul>
+<p><em>Suivant,</em></p>
+<pre><code class="language-py">...
+
+###################
+# Lifecycle methods
+
+func _ready():
+    &quot;&quot;&quot;When node is ready in game tree.&quot;&quot;&quot;
+    self.connect(&quot;area_entered&quot;, self, &quot;_on_area_entered&quot;)
+
+    self.velocity.y = self.max_speed.y
+    self.remaining_hit_points = self.hit_points
+
+func _process(delta):
+    &quot;&quot;&quot;Process each step.&quot;&quot;&quot;
+    self.accu += delta
+    self.velocity.x = sin(self.accu) * self.max_speed.x
+    self.bullet_system.firing = true
+
+    self.position += self.velocity * delta
+
+    if self.accu &gt;= 2 * PI:
+        self.accu -= 2 * PI
+
+    self._wrap_position()
+    
+...
+</code></pre>
+<p>Ces deux fonctions sont des méthodes dites de <em>lifecycle</em>, du <em>cycle de vie</em> de la scène:</p>
+<ul>
+<li><code>_ready</code>: Appelée lorsque le noeud est intégré dans le game tree, c'est ici qu'on fait les initialisations.
+<ul>
+<li>Ici, on connecte le signal <code>area_entered</code> exposé par le noeud courant (<code>Area2D</code>) sur une fonction appelée <code>on_area_entered</code>,</li>
+<li>On définit la vélocité Y courante avec la valeur max,</li>
+<li>Et on définit les points de vie restants avec la valeur de base.</li>
+</ul>
+</li>
+<li><code>_process</code>: Appelée à chaque step de l'exécution de la scène. Dans une exécution à 60 FPS, elle est exécutée toutes les 16 ms. C'est ici qu'on fait les mises à jour des éléments de la scène. La variable <code>delta</code> contient le délai qui s'est écoulé depuis la dernière update.
+<ul>
+<li>Ici, on augmente la valeur de l'accumulateur,</li>
+<li>On change la vélocité X suivant une sinusoïde pour donner un effet sympa,</li>
+<li>On active le système de tir,</li>
+<li>On définit la position de l'ennemi depuis sa vélocité,</li>
+<li>On &quot;boucle&quot; la valeur de l'accumulateur pour éviter de partir dans l'infini,</li>
+<li>On &quot;wrap&quot; la position de l'ennemi sur l'écran (fonction définie plus loin).</li>
+</ul>
+</li>
+</ul>
+<p>Vous vous demandez peut être à quoi sert ce <code>delta</code> et pourquoi <code>_update</code> est appelée aussi souvent.
+Je vais pas rentrer trop dans le détail, des articles entiers ont été réalisés sur la gestion du &quot;time step&quot; dans le jeu vidéo, mais il faut savoir qu'il est nécessaire de &quot;découper&quot; l'exécution de cette façon pour que tout puisse se mettre à jour et s'afficher en même temps.</p>
+<p><em>Suivant,</em></p>
+<pre><code class="language-py">################
+# Public methods
+
+func hit():
+    &quot;&quot;&quot;Hit the enemy.&quot;&quot;&quot;
+    if self.remaining_hit_points &lt;= 0:
+        return
+
+    self.animation_player.play(&quot;hit&quot;)
+    self.remaining_hit_points -= 1
+    if self.remaining_hit_points &lt;= 0:
+        self.explode()
+
+func explode():
+    &quot;&quot;&quot;Make it explode.&quot;&quot;&quot;
+    # Reset velocity
+    self.velocity = Vector2()
+    self.collision_shape.set_deferred(&quot;disabled&quot;, true)
+    self.emit_signal(&quot;exploded&quot;)
+
+    self.particles.emitting = false
+    self.animation_player.play(&quot;explode&quot;)
+    self.explosion.play()
+    yield(get_tree().create_timer(0.5), &quot;timeout&quot;)
+    self.queue_free()
+
+func prepare_for_spawn(spawner, x, y):
+    &quot;&quot;&quot;Prepare for spawn (Spawner method).&quot;&quot;&quot;
+    self.position.x = x
+    self.position.y = y
+    
+...
+</code></pre>
+<p>Ici, on définit 3 fonctions:</p>
+<ul>
+<li><code>hit</code>: S'assure d'enlever un point de vie à l'ennemi:
+<ul>
+<li>D'abord, on quitte la fonction si on a plus de points (explode devrait déja avoir été appelé),</li>
+<li>On exécute l'animation <code>hit</code>,</li>
+<li>On enlève un point,</li>
+<li>S'il n'y a plus de point: on appelle <code>explode</code>.</li>
+</ul>
+</li>
+<li><code>explode</code>: Fait exploser l'ennemi:
+<ul>
+<li>D'abord, on reset la vélocité (ça évite de faire glisser l'ennemi n'importe où pendant qu'il explose),</li>
+<li>On désactive le shape de collision (ça évite de bloquer les tirs du joueur pendant l'explosion),</li>
+<li>On émet le signal <code>exploded</code>,</li>
+<li>On désactive le système de particules,</li>
+<li>On exécute l'animation <code>explode</code>,</li>
+<li>On lance l'explosion,</li>
+<li>On attend 0.5 secondes (explication ci-dessous),</li>
+<li>Et enfin on programme la suppression du noeud.</li>
+</ul>
+</li>
+<li><code>prepare_for_spawn</code>: Méthode nécessaire qui sera appelée depuis <code>Spawner</code>:
+<ul>
+<li>On définit juste la position depuis les valeurs envoyées depuis le spawner.</li>
+</ul>
+</li>
+</ul>
+<p>Petite explication sur le <code>yield</code> de <code>explode</code>: si à la place on avait fait quelque chose comme <code>sleep 0.5</code>, on aurait bloqué toute l'exécution du jeu. Hors ici on veut juste attendre avant d'appeler la méthode <code>queue_free</code> pour supprimer le node.</p>
+<p>Ici, on crée un timer de 0.5 secondes à la volée via <code>get_tree().create_timer(0.5)</code>, et on attend le déclenchement du signal <code>timeout</code>, en redonnant la main au jeu (on met la fonction en &quot;pause&quot;).
+Quand le signal a été émis, la fonction <code>explode</code> reprend la main, et on exécute bien <code>queue_free</code>, et ce sans bloquer le jeu.</p>
+<p>C'est le fonctionnement même des fameuses <strong>coroutines</strong>, qu'on peut trouver dans la plupart des langages, comme en Python par exemple.</p>
+<p><em>Suivant,</em></p>
+<pre><code class="language-py">...
+
+#################
+# Private methods
+
+func _wrap_position():
+    &quot;&quot;&quot;Wrap position on screen.&quot;&quot;&quot;
+    var game_size = self.get_viewport().size
+    var sprite_size = self.sprite.texture.get_size() * self.scale
+
+    var x_lower_limit = -sprite_size.x / 2
+    var x_upper_limit = game_size.x + sprite_size.x / 2
+    var y_lower_limit = game_size.y + sprite_size.y / 2
+
+    if self.position.x &lt; x_lower_limit:
+        self.position.x = x_upper_limit
+    elif self.position.x &gt; x_upper_limit:
+        self.position.x = x_lower_limit
+
+    if self.position.y &gt; y_lower_limit:
+        self.queue_free()
+
+#################
+# Event callbacks
+
+func _on_area_entered(area):
+    &quot;&quot;&quot;When colliding with another area.&quot;&quot;&quot;
+    if area.is_in_group(&quot;Bullet&quot;) and !area.enemy_mode:
+        area.queue_free()
+        self.hit()
+</code></pre>
+<p>C'est la fin du script, on définit ici deux méthodes:</p>
+<ul>
+<li><code>_wrap_position</code>: Appelée dans le code de <code>_update</code>, permet de s'assurer que l'ennemi reste sur l'écran, et lorsqu'il traverse les bordures de l'écran lors de son déplacement, permet de le téléporter de l'autre coté:
+<ul>
+<li>On récupère la taille du jeu et du sprite,</li>
+<li>On définit les limites min/max à atteindre,</li>
+<li>Si on dépasse d'un côté on va de l'autre,</li>
+<li>Si on dépasse du bas de l'écran, on détruit le node.</li>
+</ul>
+</li>
+<li><code>_on_area_entered</code>: On l'a branchée dans la méthode <code>_ready</code>, permet de réagir aux collisions avec le noeud courant. Le paramètre <code>area</code> contient le noeud cible avec lequel l'ennemi a eu une collision.
+<ul>
+<li>Ici, on regarde si le noeud cible est dans le groupe <code>Bullet</code> et qu'il n'est pas en mode &quot;ennemi&quot;.</li>
+<li>Si c'est le cas, c'est que c'est un tir du joueur, donc on supprime la balle (via <code>queue_free</code>, et on appelle <code>hit</code> sur l'ennemi)</li>
+</ul>
+</li>
+</ul>
+<p>Voilà, vous avez toutes les explications sur l'ennemi, ça fait beaucoup mais c'est pas vraiment compliqué finalement, et ça permet de faire pas mal de choses.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="PRACTICE-NODES-STARS.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="PRACTICE-NODES-HUD.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="PRACTICE-NODES-STARS.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="PRACTICE-NODES-HUD.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
